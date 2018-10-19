@@ -1,5 +1,4 @@
 # Secret Store python package
-
 This is a python library for interacting with Parity's secret store.
 It is an abstraction layer (API) on top of the official 
 [secretstore module API](https://wiki.parity.io/JSONRPC-secretstore-module) and
@@ -14,6 +13,9 @@ Most of the function descriptions have been copied from there.
 **Primary**: Adam Nagy (@ngyam)
 
 ## Documentation
+
+[![Documentation Status](https://readthedocs.org/projects/secretstore/badge/?version=latest)](https://secretstore.readthedocs.io/?badge=latest)
+
 Readthedocs: https://secretstore.readthedocs.io/index.html
 
 ## Quickstart
