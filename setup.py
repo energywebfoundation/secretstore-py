@@ -9,10 +9,17 @@ extras_require = {
         "bumpversion",
         "setuptools>=36.2.0",
         "wheel",
+    ],
+    "docs": [
         "Sphinx",
         "sphinx-rtd-theme "
-    ]
+    ],
 }
+
+extras_require["dev"] = (
+    extras_require["docs"] +
+    extras_require["dev"]
+)
 
 setup(
     name="secretstore",
@@ -24,7 +31,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/energywebfoundation/secretstore-py",
     project_urls={
-        "Documentation": "https://github.com/energywebfoundation/secretstore-py"
+        "Documentation": "https://secretstore.readthedocs.io/"
     },
     python_requires='>=3.5.3,<4',
     extras_require=extras_require,
