@@ -32,6 +32,7 @@ setup(
     install_requires=[
         "web3>=4.0.0"
         "requests>=2.16.0,<3.0.0",
+        "decorator",
     ],
     license="MIT",
     zip_safe=False,
