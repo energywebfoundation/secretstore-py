@@ -124,3 +124,6 @@ nodes_ss_dev/db.dev_ss_charlie/chains/
 nodes_ss_dev/db.dev_ss_charlie/network/
 nodes_ss_dev/db.dev_ss_charlie/secretstore/
 nodes_ss_dev/db.dev_ss_charlie/signer/
+
+# vscode
+.vscode
