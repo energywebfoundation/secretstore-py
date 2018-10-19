@@ -12,7 +12,7 @@ extras_require = {
     ],
     "docs": [
         "Sphinx",
-        "sphinx-rtd-theme "
+        "sphinx-rtd-theme"
     ],
 }
 
