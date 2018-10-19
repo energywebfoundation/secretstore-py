@@ -21,13 +21,17 @@ extras_require["dev"] = (
     extras_require["dev"]
 )
 
+def readme():
+    with open('README.md') as f:
+        return f.read()
+
 setup(
     name="secretstore",
     version="0.0.1rc1",
     author="Adam Nagy",
     author_email="adam.nagy@energyweb.org",
     description="Python package for Parity's Secret Store API calls and sessions.",
-    long_description_markdown_filename="README.md",
+    long_description=readme(),
     long_description_content_type="text/markdown",
     url="https://github.com/energywebfoundation/secretstore-py",
     project_urls={
@@ -37,7 +41,7 @@ setup(
     extras_require=extras_require,
     include_package_data=True,
     install_requires=[
-        "web3>=4.0.0"
+        "web3>=4.0.0",
         "requests>=2.16.0,<3.0.0",
         "decorator",
     ],
