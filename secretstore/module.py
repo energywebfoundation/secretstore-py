@@ -33,7 +33,7 @@ class SecretStore(object):
     Args:
         web3 (:class:`web3.Web3`, optional): The :class:`web3.Web3` instance. Defaults to None, in which case
             it tries to `auto import <https://web3py.readthedocs.io/en/stable/providers.html#how-automated-detection-works>`_ it.
-        ss_url (str, optional): The URL where Secret Store is listening for requests (sessions). Defaults to None.
+        ss_endpoint_uri (str, optional): The endpoint where Secret Store is listening for requests (for sessions). Defaults to None.
         logger (:py:obj:`logging.Logger`, optional): The logger object. 
             Defaults to None and instantiates a default logger in this case with log level *INFO*.
 
@@ -45,16 +45,16 @@ class SecretStore(object):
         str: The signed hash.
     """
 
-    def __init__(self, web3: Web3=None, ss_url: str=None, logger: logging.Logger=None):
+    def __init__(self, web3: Web3=None, ss_endpoint_uri: str=None, logger: logging.Logger=None):
 
         self.logger = logger if logger is not None else get_default_logger(
             __name__)
 
-        if not ss_url:
-            self.logger.warning("SecretStore URL was not given, you will not be able to call sessions. \
-                Didn't you forget to pass `ss_url`?")
+        if not ss_endpoint_uri:
+            self.logger.warning("SecretStore URL was not given, you will not be able to call sessions. "
+                + "Didn't you forget to pass `ss_endpoint_uri`?")
         else:
-            self.session = Session(ss_url, logger)
+            self.session = Session(ss_endpoint_uri, logger)
 
         if web3 is None:
             self.logger.warning(

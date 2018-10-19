@@ -34,12 +34,12 @@ class Session(object):
     The class holding together the secretstore session calls.
 
     Args:
-        ss_url (str): The URL where Secret Store is listening for requests (for sessions).
+        ss_endpoint_uri (str): The endpoint where Secret Store is listening for requests (for sessions).
         logger (:py:obj:`logging.Logger`, optional): The logger object. 
             Defaults to None and instantiates a default logger in this case with log level *INFO*.
 
     Attributes:
-        ss_url (str): The URL where Secret Store is listening for requests (for sessions).
+        ss_endpoint_uri (str): The endpoint where Secret Store is listening for requests (for sessions).
         logger (:py:obj:`logging.Logger`): The logger object. 
 
     Raises:
@@ -48,17 +48,17 @@ class Session(object):
 
     __SEP = "/"
 
-    def __init__(self, ss_url: str, logger: logging.Logger=None):
+    def __init__(self, ss_endpoint_uri: str, logger: logging.Logger=None):
 
         self.logger = logger if logger is not None else get_default_logger(__name__)
 
-        if not ss_url:
-            self.logger.error("Secret Store HTTP URL was not given, please pass it as a string, e.g.: \"http://127.0.0.1:8090\"")
-            raise ValueError("Secret store HTTP URL not specified.")
+        if not ss_endpoint_uri:
+            self.logger.error("Secret Store endpoint was not given, please pass it as a string, e.g.: \"http://127.0.0.1:8090\"")
+            raise ValueError("Secret store endpoint not specified.")
 
-        self.ss_url = str(ss_url)
-        if self.ss_url.endswith(Session.__SEP):
-            self.ss_url = self.ss_url[:-1]
+        self.ss_endpoint_uri = str(ss_endpoint_uri)
+        if self.ss_endpoint_uri.endswith(Session.__SEP):
+            self.ss_endpoint_uri = self.ss_endpoint_uri[:-1]
 
     def __query(self, f, *args, **kwargs):
         verbose = kwargs.pop("verbose", True)
@@ -108,7 +108,7 @@ class Session(object):
 
         """
 
-        return self.__post(self.__urlbuild(self.ss_url,
+        return self.__post(self.__urlbuild(self.ss_endpoint_uri,
                                            "shadow",
                                            remove_0x(server_key_id),
                                            remove_0x(signed_server_key_id),
@@ -138,7 +138,7 @@ class Session(object):
 
         """
         
-        return self.__post(self.__urlbuild(self.ss_url,
+        return self.__post(self.__urlbuild(self.ss_endpoint_uri,
                                            remove_0x(server_key_id),
                                            remove_0x(signed_server_key_id),
                                            str(threshold)),
@@ -161,7 +161,7 @@ class Session(object):
 
         """
         
-        return self.__get(self.__urlbuild(self.ss_url,
+        return self.__get(self.__urlbuild(self.ss_endpoint_uri,
                                           "shadow",
                                           remove_0x(server_key_id),
                                           remove_0x(signed_server_key_id)),
@@ -190,7 +190,7 @@ class Session(object):
 
         """
         
-        return self.__get(self.__urlbuild(self.ss_url,
+        return self.__get(self.__urlbuild(self.ss_endpoint_uri,
                                           remove_0x(server_key_id),
                                           remove_0x(signed_server_key_id)),
                           verbose=verbose)
@@ -213,7 +213,7 @@ class Session(object):
 
         """
         
-        return self.__get(self.__urlbuild(self.ss_url,
+        return self.__get(self.__urlbuild(self.ss_endpoint_uri,
                                           "schnorr",
                                           remove_0x(server_key_id),
                                           remove_0x(signed_server_key_id),
@@ -238,7 +238,7 @@ class Session(object):
 
         """
         
-        return self.__get(self.__urlbuild(self.ss_url,
+        return self.__get(self.__urlbuild(self.ss_endpoint_uri,
                                           "ecdsa",
                                           remove_0x(server_key_id),
                                           remove_0x(signed_server_key_id),
@@ -265,7 +265,7 @@ class Session(object):
             :class:`SecretStoreSessionError`, :class:`requests.RequestException`
         """
         
-        return self.__post(self.__urlbuild(self.ss_url,
+        return self.__post(self.__urlbuild(self.ss_endpoint_uri,
                                            "shadow",
                                            remove_0x(server_key_id),
                                            remove_0x(signed_server_key_id),
@@ -295,7 +295,7 @@ class Session(object):
             :class:`SecretStoreSessionError`, :class:`requests.RequestException`
         """
 
-        url = self.__urlbuild(self.ss_url,
+        url = self.__urlbuild(self.ss_endpoint_uri,
                               "admin",
                               "servers_set_change",
                               remove_0x(signature_old_set),
