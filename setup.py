@@ -16,7 +16,7 @@ extras_require = {
 
 setup(
     name="secretstore",
-    version="version='0.0.1-0.1',",
+    version="0.0.1rc1",
     author="Adam Nagy",
     author_email="adam.nagy@energyweb.org",
     description="Python package for Parity's Secret Store API calls and sessions.",
