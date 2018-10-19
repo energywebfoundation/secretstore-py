@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'secretstore'
+project = 'secretstore-py'
 copyright = '2018, Energy Web Foundation'
 author = 'Adam Nagy'
 
@@ -68,7 +68,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ["nodes_ss_dev/", "utils.py"]
+exclude_patterns = ["nodes_ss_dev/", "utils.py", "tests/"]
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None

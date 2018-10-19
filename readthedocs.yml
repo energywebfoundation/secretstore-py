@@ -7,4 +7,6 @@ python:
   extra_requirements:
     - dev
 
+formats: []
+
 requirements_file: requirements.txt
