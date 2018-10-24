@@ -1,7 +1,7 @@
 # Secret Store python package
 This is a python library for interacting with Parity's secret store.
 It is an abstraction layer (API) on top of the official 
-[secretstore module API](https://wiki.parity.io/JSONRPC-secretstore-module) and
+[secretstore module RPC API](https://wiki.parity.io/JSONRPC-secretstore-module) and
 [secretstore sessions](https://wiki.parity.io/Secret-Store).
 Naming conventions follow the underlying APIs'.
 
@@ -102,4 +102,4 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## Acknowledgments
 
-* Special thanks for Parity
+* Special thanks to Parity
