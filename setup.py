@@ -27,7 +27,7 @@ def readme():
 
 setup(
     name="secretstore",
-    version="0.0.1",
+    version="0.0.2",
     author="Adam Nagy",
     author_email="adam.nagy@energyweb.org",
     description="Python package for Parity's Secret Store API calls and sessions.",
